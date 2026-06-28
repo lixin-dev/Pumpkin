@@ -336,7 +336,7 @@ impl BedrockClient {
     pub async fn send_chunks(&self, chunks: &[SyncChunk]) {
         let player = self.player.lock().await.clone();
         let Some(player) = player.as_ref() else {
-            warn!(
+            debug!(
                 "send_chunks: player not set yet, dropping {} chunks",
                 chunks.len()
             );
